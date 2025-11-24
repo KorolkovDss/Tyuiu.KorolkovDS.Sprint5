@@ -10,4 +10,4 @@ Console.WriteLine("* РЕЗУЛЬТАТ:                                        
 Console.WriteLine("***************************************************************************");
 double res = ds.LoadFromDataFile(path);
 Console.WriteLine(res);
-Console.ReadKey();
+Console.ReadKey() ;

@@ -6,7 +6,7 @@
         [TestMethod]
         public void TestMethod1()
         {
-            string path = $@"C:\DataSprint5\InPutDataFileTask4V3.txt";
+            string path = $@"C:\DataSprint5\InPutDataFileTask4V3.txt" ;
             FileInfo fileInfo = new FileInfo(path);
             bool fileExists = fileInfo.Exists;
             bool wait = true;
