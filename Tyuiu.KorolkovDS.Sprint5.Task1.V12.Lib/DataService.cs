@@ -7,30 +7,32 @@ namespace Tyuiu.KorolkovDS.Sprint5.Task1.V12.Lib
     {
         public string SaveToFileTextData(int startValue, int stopValue)
         {
-            string FPath = $@"{Path.GetTempPath()}OutPutFileTask1.txt";
-            FileInfo fileInfo = new FileInfo(FPath);
-            bool fileExists = fileInfo.Exists;
-            if (fileExists)
+
+
+            string path = $@"{Path.GetTempPath()}OutPutFileTask1.txt";
+            FileInfo fileInfo = new FileInfo(path);
+            bool FileExists = fileInfo.Exists;
+
+            if (FileExists)
             {
-                File.Delete(FPath);
+                File.Delete(path);
             }
             double y;
             string strY;
-            for (int x = startValue; x < stopValue; x++)
+            for (int x = startValue; x <= stopValue; x++)
             {
-                y = Math.Round(((5 * x + 2.5) / (Math.Sin(x) - 2)) + 2 , 2);
-                strY= Convert.ToString(y);
-                if (x >= stopValue)
+                y = Math.Round((5 * x + 2.5) / (Math.Sin(x) - 2) + 2, 2);
+                strY = Convert.ToString(y);
+                if (x != stopValue)
                 {
-                    File.AppendAllText(FPath, strY + Environment.NewLine);
+                    File.AppendAllText(path, strY + Environment.NewLine);
                 }
                 else
                 {
-                    File.AppendAllText(FPath, strY);
+                    File.AppendAllText(path, strY);
                 }
-
             }
-            return FPath;
+            return path;
         }
     }
 }
