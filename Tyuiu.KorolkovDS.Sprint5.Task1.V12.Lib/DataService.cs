@@ -20,7 +20,7 @@ namespace Tyuiu.KorolkovDS.Sprint5.Task1.V12.Lib
             {
                 y = Math.Round(((5 * x + 2.5) / (Math.Sin(x) - 2)) + 2 , 2);
                 strY= Convert.ToString(y);
-                if (x == stopValue)
+                if (x >= stopValue)
                 {
                     File.AppendAllText(FPath, strY + Environment.NewLine);
                 }
