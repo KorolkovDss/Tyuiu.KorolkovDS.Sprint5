@@ -38,7 +38,7 @@ namespace Tyuiu.KorolkovDS.Sprint5.Task2.V2.Lib
                         {
                             if (j != cols-1)
                             {
-                                str = str + matrix[i, j]+"";
+                                str = str + matrix[i, j]+";";
                             }
                             else
                             {
