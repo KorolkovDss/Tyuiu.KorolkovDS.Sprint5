@@ -7,25 +7,39 @@ namespace Tyuiu.KorolkovDS.Sprint5.Task7.V14.Lib
     {
         public string LoadDataAndSave(string path)
         {
-            string pathSaveFile = $@"{Directory.GetCurrentDirectory()}\OutPutDataFileTask7V14.txt";
+            string pathSaveFile = Path.Combine(Path.GetTempPath(), "OutPutDataFileTask7V14.txt");
 
-            FileInfo fileInfo = new FileInfo(pathSaveFile);
-            bool fileExists = fileInfo.Exists;
+            FileInfo fileinfo = new FileInfo(pathSaveFile);
+            bool fileExists = fileinfo.Exists;
 
-            
+            if (fileExists)
+            {
+                File.Delete(pathSaveFile);
+            }
 
+            string strLine = "";
             using (StreamReader reader = new StreamReader(path))
             {
                 string line;
                 while ((line = reader.ReadLine()) != null)
                 {
-                    line = line.ToUpper();
+                    for (int i = 0; i < line.Length; i++)
+                    {
+                        if ((line[i] >= 'a' && line[i] <= 'z') && (char.IsLower(line[i])))
+                        {
+                            strLine += char.ToUpper(line[i]);
+                        }
+                        else
+                        {
+                            strLine += line[i];
+                        }
+                    }
 
-                    File.AppendAllText(pathSaveFile, line + Environment.NewLine);
-
-
+                    File.AppendAllText(pathSaveFile, strLine + Environment.NewLine);
+                    strLine = "";
                 }
             }
+
             return pathSaveFile;
         }
     }
