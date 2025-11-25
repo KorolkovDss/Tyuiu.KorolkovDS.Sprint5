@@ -5,7 +5,7 @@ Console.WriteLine("* ИСХОДНЫЕ ДАННЫЕ:                             
 Console.WriteLine("*****************************************************************************");
 
 string path = $@"{Directory.GetCurrentDirectory()}\InPutDataFileTask7V14.txt";
-string pathSaveFile = $@"{Directory.GetCurrentDirectory()}\OutPutDataFileTask7V14.txt";
+string pathSaveFile = Path.Combine("OutPutDataFileTask7V14.txt");
 
 Console.WriteLine("Данные находятся в файле: " + path);
 
